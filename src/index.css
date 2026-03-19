@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #00A3FF;
+  --bg-color: #0F172A;
+  --text-color: #F8FAFC;
+}
+
+@layer base {
+  html, body {
+    @apply overflow-x-hidden; /* Защита от горизонтального скролла */
+  }
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#00A3FF] hover:bg-[#0088cc] text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20 min-h-[44px] flex items-center justify-center;
+  }
+
+  .ice-glow {
+    text-shadow: 0 0 20px rgba(0, 163, 255, 0.5);
+    color: #00A3FF;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-5xl font-bold text-center mb-10 md:mb-16 px-4;
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.8s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-900;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full;
+}
